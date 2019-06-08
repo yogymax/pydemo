@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+
+	</head>
+
+
+
+<body>
+
+		<h1>IN memory list operations....!</h1>
+
+				<form action="http://localhost:5000/saveemp/" method="post">
+					<label>Emp ID :</label>
+					<input type="text" name="empid" readonly value="{{oneemp.empId}}"><br><br>
+
+					<label>Emp NAME :</label>
+					<input type="text" name="empnm" value="{{oneemp.empName}}"><br><br>
+
+					<label>Emp AGE :</label>
+					<input type="text" name="empag" value="{{oneemp.empAge}}"><br><br>
+
+					<label>Emp SALARY :</label>
+					<input type="text" name="empsal" value="{{oneemp.empSalary}}"><br><br>
+
+					<label>Emp ADDRESS :</label>
+					<input type="text" name="empadr" value="{{oneemp.empAddress}}"><br><br>
+
+					<label>Emp DESIGNATION :</label>
+					<input type="text" name="empdesg" value="{{oneemp.empDegignation}}"><br><br>
+
+
+					
+				<input type="submit"/>
+					
+					
+				</form>
+
+				<table>
+						<thead>
+
+						<td>EMPID</td>
+						<td>EMPNAME</td>
+						<td>EMPAGE</td>
+						<td>EMPSALARY</td>
+						<td>EMPADDRESS</td>
+						<td>EMPDESIGNATION</td>
+						<td>ACTIONS</td>
+						</thead>
+
+					{% for emp in employees%}
+						<tr>
+							<td>{{emp.empId}}</td>
+							<td>{{emp.empName}}</td>
+							<td>{{emp.empAge}}</td>
+							<td>{{emp.empSalary}}</td>
+							<td>{{emp.empAddress}}</td>
+							<td>{{emp.empDegignation}}</td>
+							<td>
+								<a href="{{ '/edit/%s'%emp.empId}}">Edit</a>
+ 								<a href="{{ '/delete/%s'%emp.empId }}">Delete</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+
+					
+			</body>
+	</html>

@@ -1,0 +1,69 @@
+
+	Flask MVC App -- 
+		
+		change in any python will flush the data..
+		
+		
+		
+		
+		
+		C:\\Users\\Yogesh\\sample\\employee_crud\\
+		
+		dbconfig.py
+		
+		
+		
+		
+	dbconfig.py
+		
+		
+		app = Flask(__name__)  # web
+		app.config["SQL_DB_URI"] = "SQLITE3"
+		db = SQLALCHEMY(app)
+		class Employee(db.Model)  #ORM
+		--fields..
+			fieldname -- columnnm
+			
+			
+	open command prompt -- activate env... python
+	will start the shell inside virtual env
+	>> import os
+	>>os.chdir(location till module )
+	>> from dbconfig import *
+	
+	
+	
+	
+	
+	activate env and start python shell		
+			
+import os
+os.chdir('C:\\Users\\Yogesh\\sample\\employee_crud\\')
+from dbconfig import *
+db.create_all()
+
+
+e1 =Employee(id=101,name="AAAA",city="AY",age=22,salary=2993.2,designation="AABB")
+db.session.add(e1)
+db.session.commit()
+
+
+
+	
+	
+	db.create_all() ------create table
+	Employee.query.all() ----------select * from employee
+	
+	e1 = Employee(-----)
+	db.session.add(e1)
+	db.session.commit() --------------insert
+	
+	
+	Employee.query.filter_by(id=101).first() -- select * from employee where id=1
+	
+	
+	emp = Employee.query.filter_by(id=101).first() -- AAA
+	emp.empName = "BBB"
+	db.session.commit() -- update
+	
+	db.drop_all() ---

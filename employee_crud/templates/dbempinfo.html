@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+
+	</head>
+
+
+
+<body>
+
+
+
+            <h1>Database Operations..!</h1>
+
+				<form action="http://localhost:5000/persist/" method="post">
+					<label>Emp ID :</label>
+					<input type="text" name="empid" readonly value="{{oneemp.id}}"><br><br>
+
+					<label>Emp NAME :</label>
+					<input type="text" name="empnm" value="{{oneemp.name}}"><br><br>
+
+					<label>Emp AGE :</label>
+					<input type="text" name="empag" value="{{oneemp.age}}"><br><br>
+
+					<label>Emp SALARY :</label>
+					<input type="text" name="empsal" value="{{oneemp.salary}}"><br><br>
+
+					<label>Emp ADDRESS :</label>
+					<input type="text" name="empadr" value="{{oneemp.city}}"><br><br>
+
+					<label>Emp DESIGNATION :</label>
+					<input type="text" name="empdesg" value="{{oneemp.designation}}"><br><br>
+
+
+
+				<input type="submit"/>
+
+
+				</form>
+
+				<table>
+						<thead>
+
+						<td>EMPID</td>
+						<td>EMPNAME</td>
+						<td>EMPAGE</td>
+						<td>EMPSALARY</td>
+						<td>EMPADDRESS</td>
+						<td>EMPDESIGNATION</td>
+						<td>ACTIONS</td>
+						</thead>
+
+					{% for emp in employees%}
+						<tr>
+							<td>{{emp.id}}</td>
+							<td>{{emp.name}}</td>
+							<td>{{emp.age}}</td>
+							<td>{{emp.salary}}</td>
+							<td>{{emp.city}}</td>
+							<td>{{emp.designation}}</td>
+							<td>
+								<a href="{{ '/modify/%s'%emp.id}}">Edit</a>
+ 								<a href="{{ '/remove/%s'%emp.id }}">Delete</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+
+
+			</body>
+	</html>
